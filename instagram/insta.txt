@@ -1,0 +1,26 @@
+- MUI: avatar, modal
+- Create database (firebase): => APIkey,...
++) firebaseApp = firebase.initializeApp({APIkey...})
++) db = firebaseApp.firestore()
+
+- Upload post:
++) db.collection('posts').onSnapshot(snapshot => {
+	setPosts(snapshot.docs.map(doc => ))
+}) (everytime 'posts'/document changes, this
+code fires...)
+
+- Firebase user authentication
++) createUserWithEmailAndPassword
++) onAuthStateChanged
++) signInWithEmailAndPassword
+
+- Storage:
++) 
+
+ *****************************
+
+1) Upload posts from db (database)
+2) Manage user Signin/Signout, form register/login with auth (user authentication)
+3) Post picture and caption with storage (storage of firebase)	
+
+- Bucket cloud: add principal, false=>true (storage/rules)

@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+}
+
+.app__background-image {
+  position: relative;
+  object-fit: contain;
+  width: 100%;
+  background-position: center;
+}
+
