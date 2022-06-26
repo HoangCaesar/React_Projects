@@ -1,0 +1,43 @@
+@use '../../scss/'as *;
+
+.auth {
+
+    &__header {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        border-bottom: 1px solid lightgray;
+        object-fit: contain;
+        background-color: #fff;
+        z-index: 1;
+    }
+
+    &__headerImage {
+        object-fit: contain;
+        width: 140px;
+        height: 40px;
+    }
+
+    &__signup {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    &__posts {
+        margin-left: 50%;
+        transform: translateX(-40%)
+    }
+
+    &__btns {
+        @include flex(center, space-around);
+        margin-top: 1.5rem;
+        
+        &.btn {
+            width: 36%;
+        }
+
+    }
+}

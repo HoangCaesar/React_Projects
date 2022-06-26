@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import './movieGrid.scss';
 import tmdbApi, { category, movieType, tvType } from '../../api/tmdbApi';
 import MovieCard from '../movie-card/MovieCard';
-import { OutlineButton } from '../button/Button';
+import Button, { OutlineButton } from '../button/Button';
 import Input from '../input/Input';
 import { useNavigate } from 'react-router-dom';
 
@@ -95,8 +95,9 @@ const MovieSearch = props => {
 
     const goToSearch = useCallback(() => {
         if (keyword.trim().length > 0) {
-            navigate(`${category[props.category]}/search/${keyword}`);
+            navigate(`/${category[props.category]}/search/${keyword}`);
         }
+        setKeyword('');
     }, [keyword, props.category, navigate]);
 
     useEffect(() => {
@@ -120,6 +121,7 @@ const MovieSearch = props => {
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
             />
+            <Button className="small" onClick={goToSearch}>Search</Button>
         </div>
     )
 }

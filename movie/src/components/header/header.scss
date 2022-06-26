@@ -84,9 +84,10 @@
 
             @include flex(center, space-between);
 
-            & > * ~ {
+            &>*~ {
                 margin-left: 0;
             }
         }
+
     }
 }

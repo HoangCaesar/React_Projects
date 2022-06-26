@@ -10,9 +10,9 @@ import RouteS from './config/RouteS';
 function App() {
   return (
     <>
-      <Header />
-      <RouteS />
-      <Footer />
+        <Header />
+        <RouteS />
+        <Footer />
     </>
   );
 }

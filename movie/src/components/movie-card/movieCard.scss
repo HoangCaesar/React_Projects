@@ -13,7 +13,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        box-shadow: 0px 0px 7px 8px #ff00004d;
+        box-shadow: 0px 0px 7px 8px #2c0aa74d;
         transform: translate(50%, 50%) scale(0);
         transition: transform 0.9 ease, box-shadow 0.3s ease;
     }
@@ -38,7 +38,7 @@
 
         &:hover .btn {
             transform: translate(-50%, -50%) scale(1);
-            box-shadow: 0px 0px 7px 16px #ff00004d;
+            box-shadow: 0px 0px 7px 16px #2c0aa74d;
         }
     }
 }

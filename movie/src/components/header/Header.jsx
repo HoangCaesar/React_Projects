@@ -1,8 +1,13 @@
-import { useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './header.scss';
 import logo from '../../assets/logoMovie2.png';
+import { OutlineButton } from '../button/Button';
+import Context from '../../store/Context';
+import { auth } from '../../api/firebase';
+import { setUserStatus } from '../../store/actions';
 
 const headerNav = [
     {
@@ -19,7 +24,23 @@ const headerNav = [
     }
 ];
 
+const status = {
+    login: 'login',
+    signup: 'signup'
+}
+
 function Header() {
+    const [state, dispatch] = useContext(Context);
+    const { userEmail, userInfo, userStatus } = state;
+
+    const navigate = useNavigate();
+
+    const handleSignout = () => {
+        auth.signOut();
+        dispatch(setUserStatus(false));
+        navigate('/');
+    }
+
     let { pathname } = useLocation();
     const headerRef = useRef(null);
 
@@ -46,18 +67,25 @@ function Header() {
                     <img src={logo} alt="logo" />
                     <Link to="/">myMovies</Link>
                 </div>
+                {
+                    userStatus
+                        ? <ul className="header__nav">
+                            {
+                                headerNav.map((e, i) => (
+                                    <li key={i} className={`${i === active ? 'active' : ''}`}>
+                                        <Link to={e.path}>
+                                            {e.display}
+                                        </Link>
+                                    </li>
+                                ))
+                            }
+                            <OutlineButton className="small" onClick={handleSignout}>
+                                Sign Out
+                            </OutlineButton>
+                        </ul>
+                        : ''
+                }
 
-                <ul className="header__nav">
-                    {
-                        headerNav.map((e, i) => (
-                            <li key={i} className={`${i === active ? 'active' : ''}`}>
-                                <Link to={e.path}>
-                                    {e.display}
-                                </Link>
-                            </li>
-                        ))
-                    }
-                </ul>
             </div>
         </div>
     );

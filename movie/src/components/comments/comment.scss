@@ -1,0 +1,28 @@
+@use '../../scss/'as *;
+
+.comment {
+    @include flex(unset, center);
+    flex-direction: column;
+
+    &__typing {
+        @include flex(center, center);
+    }
+
+    &__show {
+        @include flex(center, center);
+
+        flex-direction: column;
+
+        &>*~* {
+            margin-top: 1.5rem;
+        }
+
+        &__item {
+
+            p {
+                color: blue;
+            }
+        }
+
+    }
+}

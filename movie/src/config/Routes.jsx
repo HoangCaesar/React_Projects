@@ -3,7 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from '../pages/Home';
 import Catalog from '../pages/Catalog';
-import Detail from '../pages/Detail';
+import Detail from '../pages/detail-page/Detail';
+import Auth from '../pages/auth/Auth';
 
 function RouteS() {
     return (
@@ -11,6 +12,10 @@ function RouteS() {
             <Route
                 path="/"
                 element={<Home />}
+            />
+            <Route
+                path="/auth"
+                element={<Auth />}
             />
             <Route
                 path="/:category"
